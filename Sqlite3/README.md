@@ -17,7 +17,12 @@
 * 11、源码完全的开源, 你可以用于任何用途, 包括出售它
 * 12、支持多种开发语言，C, C++, PHP, Perl, Java, C#,Python, Ruby等
 
-## 2、使用步骤
+## 2、sqlite可视化
+>由于我们调用sqlite3来对数据库文件进行操作，所以我们经常会接触.db文件，需要一个可视化数据库文件的软件来辅助我们进行设计。
+### SQLite Expert Personal 
+下载QQ电脑管家，在软件宝库中搜索sqlite即可下载。
+
+## 3、使用步骤
 > 开发环境：win7+vs2005+C++11
 ### 1、下载sqlite3
 [下载地址](http://www.sqlite.org/download.html)，下载以下三个文件：
