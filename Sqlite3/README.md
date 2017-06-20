@@ -43,8 +43,11 @@ lib /def:sqlite3.def /machine:ix86
 最后生成sqlite3.lib文件。
 
 ### 3、包含sqlite3.h头文件
-* 将我们生成的sqlite3.lib和sqlite3.h(sqlite-amalgamation-3190300文件夹中)还有sqlite3.dll文件一起拷贝到项目目录下，然后设置依赖：
+* 将我们生成的sqlite3.lib和sqlite3.h(sqlite-amalgamation-3190300文件夹中)还有sqlite3.dll文件一起拷贝到项目目录下
+![项目目录](https://github.com/cbhust8025/C-Learn/blob/master/Sqlite3/sqlite3.png)
+* 然后设置依赖：
 > 右键vs2005中项目->Properties->Configuration Properties->Linker->Input->Additional Dependencies->添加sqlite3.lib即可
+![设置依赖](https://github.com/cbhust8025/C-Learn/blob/master/Sqlite3/sqlite3_2.png)
 * 在项目中需要sqlite3的地方：
 ```C++
 #include "sqlite3.h"
