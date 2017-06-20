@@ -230,11 +230,11 @@ SQLITE_API int sqlite3_exec(
 );
 ```
 参数解释：
-* sqlite3*:读取数据库文件，来进行操作，也即数据库对象(sqlite3*)
-* const char *sql：我们需要执行的sql语句，可以利用拼接来进行定义此语句
-* int (*callback)(void*,int,char**,char**) : 回调函数，在调用了sql语句之后的回调函数
-* void *：回调函数的第一个参数
-* char **errmsg： 保存错误信息
+>* sqlite3*:读取数据库文件，来进行操作，也即数据库对象(sqlite3*)
+>* const char *sql：我们需要执行的sql语句，可以利用拼接来进行定义此语句
+>* int (*callback)(void*,int,char**,char**) : 回调函数，在调用了sql语句之后的回调函数
+>* void *：回调函数的第一个参数
+>* char **errmsg： 保存错误信息
 
 * 演示代码：
 ```C++
