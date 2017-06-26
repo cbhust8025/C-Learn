@@ -39,4 +39,35 @@
 
 ### 4、实战演练：
 #### 1、构建DLL：
-* 
+* 创建Win32 dll项目
+>![创建win32 dll项目](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/001.png)
+* 勾选预编译头：VS 默认情况下会创建并使用预编译头文件(也就是自动创建 StdAfx.h 和 StdAfx.cpp 这两个文件)，以便在编译时加快编译速度，预编译器将它编译后，会生成一个 Pre-compiled header ，也就是 pch 文件，这样下次就可以直接使用这里已经编译好了的代码了。
+>![勾选预编译头](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/002.png)
+* 创建完成后如下所示空项目：
+>![空项目](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/003.png)
+* 空项目中在DLLTest.cpp中添加我们想要封装的函数或者变量，并将debug修改为release：
+>![修改cpp](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/004.png)
+* 新建DLLTest.h,声明函数定义并声明此函数为导出函数：
+>![创建DLLTest.h](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/005.png)
+>![修改DLLTest.h](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/006.png)
+* 注意：```__stdcall```定义导出函数入口点调用约定为 ```_stdcall```
+> extern ```"C"```说明导出函数使用C编译器，则函数名遵循C编译器的函数名修饰规则，不加extern ```"C"```说明使用C++编译器的函数名修饰规则，两种规则区别如下：
+>* C编译器的函数名修饰规则:
+>> 对于```__stdcall```调用约定，编译器和链接器会在输出函数名前加上一个下划线前缀，函数名后面加上一个```“@”```符号和其参数的字节数，例如             ```_functionname@number```。```__cdecl```调用约定仅在输出函数名前加上一个下划线前缀，例如```_functionname```。```__fastcall```调用约定在输出函数名前加上一个```“@”```符号，后面也是一个```“@”```符号和其参数的字节数，例如```@functionname@number```。
+>* C++编译器的函数名修饰规则:
+>> C++的函数名修饰规则有些复杂，但是信息更充分，通过分析修饰名不仅能够知道函数的调用方式，返回值类型，甚至参数个数、参数类                           型。不管```__cdecl```，```__fastcall```还是```__stdcall```调用方式，函数修饰都是以一个```“?”```开始，后面紧跟函数的名字，再后面是参数表的开始标识和按照参数类型代号拼出的参数表。对于```__stdcall```方式，参数表的开始标识是```“@@YG”```，对于```__cdecl```方式则是```“@@YA”```,对于           ```__fastcall```方式则是```“@@YI”```。
+* 我们需要覆盖掉修饰规则产生的奇怪函数名或者变量名，所以需要额外添加一个def文件：
+>![创建def文件](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/007.png)
+>![覆盖函数名](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/008.png)
+* 在完成以上步骤后，生成即可生完成我们的DLL文件生成：(注意：我们之后调用DLL中的函数需要用到：dll文件、lib文件、h文件)
+>![生成](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/009.png)
+
+#### 2、调用DLL
+* 创建空项目：
+>![创建空项目](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/010.png)
+* 将上一步生成的DLLTest.dll、DLLTest.lib、DLLTest.h三个文件拷贝到项目路径下：
+>![拷贝文件](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/011.png)
+* ```#include "DLLTest.h"```调用函数即可：
+>![InvokeDLL.cpp](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/012.png)
+* 结果如下：
+>![res](https://github.com/cbhust8025/C-Learn/blob/master/TencentLearn/DLLLearn/pngfiles/013.png)
