@@ -375,3 +375,31 @@ int lstrcmp(LPCTSTR lpString1,LPCTSTR lpString2);
 // 注意：lstrcmp函数比较两个字符串是通过检查第一个字符是否不同，然后检查第二个字符，直到发现不同之处或是到了字符串的末尾。
 
 ```
+
+* PostMessage: 向一个窗口发送一个消息。
+```C++
+WINUSERAPI
+BOOL
+WINAPI
+PostMessageA(
+    _In_opt_ HWND hWnd,
+    _In_ UINT Msg,
+    _In_ WPARAM wParam,
+    _In_ LPARAM lParam);
+WINUSERAPI
+BOOL
+WINAPI
+PostMessageW(
+    _In_opt_ HWND hWnd,
+    _In_ UINT Msg,
+    _In_ WPARAM wParam,
+    _In_ LPARAM lParam);
+#ifdef UNICODE
+#define PostMessage  PostMessageW
+#else
+#define PostMessage  PostMessageA
+#endif // !UNICODE
+```
+```C++
+PostMessage(FindWindow(_T("TXGuiFoundation"), NULL), dwMessage, NULL, NULL);
+```
