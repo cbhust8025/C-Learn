@@ -363,3 +363,15 @@ TLOG_UNINIT();
 	CModuleLog::Output(MODULELOG_LEVEL_INFO, format, __VA_ARGS__);\
 }\
 ```
+
+* lstrcmpi: 比较两个字符串，此比较不区分大小写
+```C++
+// 函数功能：比较两个字符串，此比较不区分大小写。
+int lstrcmp(LPCTSTR lpString1,LPCTSTR lpString2);
+// 参数：
+// lpString1：指向将被比较的第一个字符串。
+// lpString2：指向将被比较的第二个字符串。
+// 返回值：若第一个字符串比第二个字符串小则返回值为负；若第一个字符串比第二个字符串大则返回值为正；若两个字符串相等则返回值为0。
+// 注意：lstrcmp函数比较两个字符串是通过检查第一个字符是否不同，然后检查第二个字符，直到发现不同之处或是到了字符串的末尾。
+
+```
