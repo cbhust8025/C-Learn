@@ -13,3 +13,6 @@ vs2015 + win10
 * targetver.h
 * VectorHelper.cpp
 * VectorHelper.h
+
+日志:
+* MyTest_exe_12-45-46_7876.log
