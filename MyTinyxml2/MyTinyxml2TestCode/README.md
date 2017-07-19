@@ -1,0 +1,9 @@
+# MyTinyxml2测试工程（普通win32工程）
+* 头文件
+>* stdafx.h
+>* targetver.h
+>* tinystr.h
+>* tinyxml.h
+* .cpp文件
+>* stdafx.cpp
+>* TinyXmlLearn.cpp
