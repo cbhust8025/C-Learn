@@ -47,45 +47,45 @@
 /** Load a file using the current document value.
 		Returns true if successful. Will delete any existing
 		document data before loading.
-	*/
-	bool LoadFile( TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
-	/// Save a file using the current document value. Returns true if successful.
-	bool SaveFile() const;
-	/// Load a file using the given filename. Returns true if successful.
-	bool LoadFile( const char * filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
-	/// Load a file using the given filename. Returns true if successful.
-	bool LoadFile( const wchar_t * filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING);
-	/// Save a file using the given filename. Returns true if successful.
-	bool SaveFile( const char * filename ) const;
-	/// Save a file using the given filename. Returns true if successful.
-	bool SaveFile( const wchar_t * filename) const;
-	/** Load a file using the given FILE*. Returns true if successful. Note that this method
-		doesn't stream - the entire object pointed at by the FILE*
-		will be interpreted as an XML file. TinyXML doesn't stream in XML from the current
-		file location. Streaming may be added in the future.
-	*/
-	bool LoadFile( FILE*, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
-	/// Save a file using the given FILE*. Returns true if successful.
-	bool SaveFile( FILE* ) const;
+*/
+bool LoadFile( TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
+/// Save a file using the current document value. Returns true if successful.
+bool SaveFile() const;
+/// Load a file using the given filename. Returns true if successful.
+bool LoadFile( const char * filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
+/// Load a file using the given filename. Returns true if successful.
+bool LoadFile( const wchar_t * filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING);
+/// Save a file using the given filename. Returns true if successful.
+bool SaveFile( const char * filename ) const;
+/// Save a file using the given filename. Returns true if successful.
+bool SaveFile( const wchar_t * filename) const;
+/** Load a file using the given FILE*. Returns true if successful. Note that this method
+	doesn't stream - the entire object pointed at by the FILE*
+	will be interpreted as an XML file. TinyXML doesn't stream in XML from the current
+	file location. Streaming may be added in the future.
+*/
+bool LoadFile( FILE*, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
+/// Save a file using the given FILE*. Returns true if successful.
+bool SaveFile( FILE* ) const;
 
-	#ifdef TIXML_USE_STL
-	bool LoadFile(const std::wstring& filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING)			///< STL std::string version.
-	{
-		return LoadFile(filename.c_str(), encoding);
-	}
-	bool LoadFile( const std::string& filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING )			///< STL std::string version.
-	{
-		return LoadFile( filename.c_str(), encoding );
-	}
-	bool SaveFile(const std::wstring& filename) const		///< STL std::string version.
-	{
-		return SaveFile(filename.c_str());
-	}
-	bool SaveFile( const std::string& filename ) const		///< STL std::string version.
-	{
-		return SaveFile( filename.c_str() );
-	}
-	#endif
+#ifdef TIXML_USE_STL
+bool LoadFile(const std::wstring& filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING)			///< STL std::string version.
+{
+	return LoadFile(filename.c_str(), encoding);
+}
+bool LoadFile( const std::string& filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING )			///< STL std::string version.
+{
+	return LoadFile( filename.c_str(), encoding );
+}
+bool SaveFile(const std::wstring& filename) const		///< STL std::string version.
+{
+	return SaveFile(filename.c_str());
+}
+bool SaveFile( const std::string& filename ) const		///< STL std::string version.
+{
+	return SaveFile( filename.c_str() );
+}
+#endif
 ```
 
 * tinyxml.cpp:中增添对应的函数
