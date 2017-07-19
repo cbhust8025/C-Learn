@@ -158,6 +158,7 @@ bool TiXmlDocument::SaveFile(const wchar_t * filename) const
 ```
 
 ### 4.3 使用MyTinyxml2库
+* 将lib工程生成的[MyTinyxml2.lib](https://github.com/cbhust8025/C-Learn/blob/master/MyTinyxml2/MyTinyXml2_release32.lib),以及```tinystr.h```、```tinyxml.h```两个修改后的头文件一起放入工程中，工程添加依赖项MyTinyxml2.lib。
 * 在新工程```stdafx.h```中##必须##首先```#define TIXML_USE_STL```
 * 在进行了相关的宏定义之后，include对应的两个头文件：```tinystr.h```、```tinyxml.h```
 * 最后使用自己添加命名空间：MyTinyxml2
