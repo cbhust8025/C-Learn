@@ -41,7 +41,7 @@
 ### 4.1 添加命名空间
 命名空间添加需要同时修改头文件和cpp文件，一一对应修改。
 
-### 4.2 添加支持wchar_t（宽字节）、wstring（宽字符串类型）
+### 4.2 LoadFile/SaveFile函数添加支持wchar_t（宽字节）、wstring（宽字符串类型）
 * tinyxml.h修改：
 ```C++
 /** Load a file using the current document value.
@@ -155,4 +155,20 @@ bool TiXmlDocument::SaveFile(const wchar_t * filename) const
 	return false;
 }
 
+```
+
+### 4.3 使用MyTinyxml2库
+* 在新工程```stdafx.h```中##必须##首先```#define TIXML_USE_STL```
+* 在进行了相关的宏定义之后，include对应的两个头文件：```tinystr.h```、```tinyxml.h```
+* 最后使用自己添加命名空间：MyTinyxml2
+* 注意先后顺序，若宏定义放在后面则会出现链接错误.
+```C++
+
+#define TIXML_USE_STL
+
+// TODO:  在此处引用程序需要的其他头文件
+#include "tinystr.h"
+#include "tinyxml.h"
+
+using namespace MyTinyxml2;
 ```
