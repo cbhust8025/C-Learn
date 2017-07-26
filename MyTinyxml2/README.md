@@ -5,13 +5,14 @@
 
 ## 2、Tinyxml与Tinyxml2
 
-### 相同点：
+### 2.1 同与异：
+#### 相同点：
 
 * 都使用了简单易用的APIs
 * 基于DOM树进行解析
 * 都支持UTF-8/Unicode编码
 
-### 不同点：
+#### 不同点：
 
 * TinyXml-2优点：
 >* 对大部分C、C++项目具有普适性。
@@ -24,6 +25,17 @@
 >* 可以报告分析错误的位置
 >* 提供一些C++ STL公约支持：流和字符串（string类）
 >* 拥有非常成熟和良好的调试代码库。
+
+### 2.2 Tinyxml2结构：
+* 2.2.1 Tinyxml2类结构：
+![Tinyxml2类结构](https://github.com/cbhust8025/C-Learn/blob/master/MyTinyxml2/pngFiles/Structure.png)
+* 2.2.2 Tinyxml2类方法：
+>* TiXmlNode:
+![TiXmlNode](https://github.com/cbhust8025/C-Learn/blob/master/MyTinyxml2/pngFiles/TiXmlNode.png)
+>* TiXmlElement:
+![TiXmlElement](https://github.com/cbhust8025/C-Learn/blob/master/MyTinyxml2/pngFiles/TiXmlElement.png)
+>* TiXmlDocument:
+![TiXmlDocument](https://github.com/cbhust8025/C-Learn/blob/master/MyTinyxml2/pngFiles/TiXmlDocument.png)
 
 ## 3、建立自己的命名空间和lib -- 支持wchar_t（宽字节）
 >为了封装源码文件（.cpp），我们需要建立工程，链接成lib文件，配合我们的```tinystr.h```、```tinyxml.h```一起使用，即可进行xml文件的相关操作。
